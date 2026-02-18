@@ -28,6 +28,7 @@ builder.Services.AddScoped(sp =>
     };
 });
 builder.Services.AddScoped<ProductProvider>();
+builder.Services.AddScoped<CustomerProivider>();
 
 
 builder.Services.AddEndpointsApiExplorer();

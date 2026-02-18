@@ -2,7 +2,7 @@
 @using workkkk.Viewmodel
 @using workkkk.Provider;
 @* @inject OrderProvider orderProvider *@
-@* @inject CustomerProvider customerProvider*@
+@inject CustomerProivider customerProvider
 @inject ProductProvider ProductProvider
 
 <h3>Create Order</h3>
@@ -10,17 +10,17 @@
 <div class="card p-4">
 
     <!-- Customer -->
-    @* <div class="mb-3">
+    <div class="mb-3">
         <label>Customer</label>
-        <select class="form-select" @bind="model.customerid">
+        <select class="form-select" >
             <option value="0">-- Select Customer --</option>
 
             @foreach (var c in customers)
             {
-                <option value="@c.id">@c.name</option>
+                <option value="@c.Code">@c.Name</option>
             }
         </select>
-    </div> *@
+    </div>
 
     <!-- Product -->
     <div class="mb-3">
@@ -74,12 +74,13 @@
     decimal selectedPrice = 0;
     decimal totalAmount = 0;
 	private string productcode = "P001";
+    private string code = "P001";
     string errorMessage = "";
 
     // ✅ โหลดตอนเปิดหน้า
     protected override async Task OnInitializedAsync()
     {
-        // customers = await customerProvider.GetActiveCustomers();
+        customers = await customerProvider.CustomerlistById(code);
         products = await ProductProvider.ProductListById(productcode);
 
 
