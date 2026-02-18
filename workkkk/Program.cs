@@ -29,7 +29,7 @@ builder.Services.AddScoped(sp =>
 });
 builder.Services.AddScoped<ProductProvider>();
 builder.Services.AddScoped<CustomerProivider>();
-
+builder.Services.AddScoped<OrderProvider>(); 
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

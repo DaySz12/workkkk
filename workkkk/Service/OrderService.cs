@@ -96,7 +96,7 @@ namespace workkkk.Service
                     order = new Order
                         {
                                 Orderno = model.Orderno,
-                                Status = model.Status,
+                                Status = "New",
                                 Totalamount = product.Price * model.Qty,
                                 Productid = model.Productid,
                                 Unitprice = product.Price,
